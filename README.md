@@ -41,8 +41,8 @@
 3. **진행상황**
 > 1. 22/05/01  
 >    - 젠킨스 연결 및 자동 배포 기능 구현완료  ( github-webhook && ngrok > 로컬 url  -> 임시 외부 url 로 변경 )  
->    - ![image](https://user-images.githubusercontent.com/80584060/166144452-ec3a0417-978b-4a8a-9b09-cd85c296acc8.png)
->    
+>    ![image](https://user-images.githubusercontent.com/80584060/166144452-ec3a0417-978b-4a8a-9b09-cd85c296acc8.png)
+>     ![img.png](img.png)
 
     
 

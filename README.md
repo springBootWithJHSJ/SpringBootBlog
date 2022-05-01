@@ -5,7 +5,7 @@
 
 1. 개발 환경
     - Intellij
-    - Postman
+    - Postman  
     -    
     - GitHub
     - Mysql  

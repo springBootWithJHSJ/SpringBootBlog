@@ -38,14 +38,21 @@
         - Github-api
 ---
 
-3. **진행상황**
-> 1. 22/05/01  
->    - 젠킨스 연결 및 자동 배포 기능 구현완료  ( github-webhook && ngrok > 로컬 url  -> 임시 외부 url 로 변경 )  
+3. **진행상황**  
+
+>1. 22/05/01  
+>>- 젠킨스 연결 및 자동 배포 기능 구현완료  ( github-webhook && ngrok > 로컬 url  -> 임시 외부 url 로 변경 )  
 >    ![image](https://user-images.githubusercontent.com/80584060/166144452-ec3a0417-978b-4a8a-9b09-cd85c296acc8.png)
 >     ![img.png](img.png)
->    - ERD 다이어그램
+- ERD 다이어그램
 >    ![img_2.png](img_2.png)
 >    ![img_1.png](img_1.png)
+> 
+>22/05/03  
+>>  스웨거 적용
+> ![img_3.png](img_3.png)
+> 코드가 지저분해 진다는 단점은 존재, 하지만 개별 기능에 대한 문서화가 가능한 장점이 있기에 도입.
+> 
     
 
 ### Reference Documentation

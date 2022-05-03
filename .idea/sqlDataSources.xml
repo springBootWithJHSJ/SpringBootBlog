@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="ef702f84-0cab-48cf-96f8-c46629a5dfbb" name="@blog-project.c4ccun7w5hlo.ap-northeast-2.rds.amazonaws.com Mapping">
+      <data-sources db="cd293d11-7608-45a9-bedc-7430ad96a603" />
+      <scope>
+        <node kind="schema" qname="blog_project_db" />
+      </scope>
+    </mapping>
+  </component>
+</project>

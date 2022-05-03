@@ -32,20 +32,23 @@ public class ArticlesTags {
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       @Id
       @Column(name = "article_tag_no")
-      private short articleTagNo;
+      private int articleTagNo;
+
       @Basic
-      @Column(name = "article_no")
-      private short articleNo;
+      @Column(name = "article_no", insertable = false, updatable = false)
+      private int articleNo;
+
       @Basic
-      @Column(name = "tag_id")
-      private short tagId;
+      @Column(name = "tag_id", insertable = false, updatable = false)
+      private int tagId;
+
       @ManyToOne
       @JoinColumn(name = "article_no", referencedColumnName = "article_no", nullable = false)
       private Articles articlesByArticleNo;
+
       @ManyToOne
       @JoinColumn(name = "tag_id", referencedColumnName = "tag_no", nullable = false)
       private Tags tagsByTagId;
-
 
       @Override
       public boolean equals(Object o) {

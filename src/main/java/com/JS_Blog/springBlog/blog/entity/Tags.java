@@ -32,7 +32,7 @@ public class Tags {
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       @Id
       @Column(name = "tag_no")
-      private short tagNo;
+      private int tagNo;
       @Basic
       @Column(name = "tag_name")
       private String tagName;

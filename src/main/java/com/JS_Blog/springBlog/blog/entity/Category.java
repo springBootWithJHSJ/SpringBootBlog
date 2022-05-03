@@ -32,19 +32,18 @@ public class Category {
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       @Id
       @Column(name = "category_no")
-      private short categoryNo;
+      private int categoryNo;
       @Basic
       @Column(name = "category_name")
       private String categoryName;
       @Basic
-      @Column(name = "user_no")
-      private short userNo;
+      @Column(name = "user_no", insertable = false, updatable = false)
+      private int userNo;
       @OneToMany(mappedBy = "categoryByCategoryNo")
       private Collection<Articles> articlesByCategoryNo;
       @ManyToOne
       @JoinColumn(name = "user_no", referencedColumnName = "user_no", nullable = false)
       private Users usersByUserNo;
-
 
       @Override
       public boolean equals(Object o) {

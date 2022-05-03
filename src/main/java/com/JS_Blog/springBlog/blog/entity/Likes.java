@@ -31,20 +31,19 @@ public class Likes {
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       @Id
       @Column(name = "like_no")
-      private short likeNo;
+      private int likeNo;
       @Basic
-      @Column(name = "user_no")
-      private short userNo;
+      @Column(name = "user_no", insertable = false, updatable = false)
+      private int userNo;
       @Basic
-      @Column(name = "article_no")
-      private short articleNo;
+      @Column(name = "article_no", insertable = false, updatable = false)
+      private int articleNo;
       @ManyToOne
       @JoinColumn(name = "user_no", referencedColumnName = "user_no", nullable = false)
       private Users usersByUserNo;
       @ManyToOne
       @JoinColumn(name = "article_no", referencedColumnName = "article_no", nullable = false)
       private Articles articlesByArticleNo;
-
 
       @Override
       public boolean equals(Object o) {

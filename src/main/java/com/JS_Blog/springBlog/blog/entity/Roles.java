@@ -23,7 +23,6 @@ import java.util.Objects;
  * 2022-05-03        ipeac       최초 생성
  */
 
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,18 +32,16 @@ public class Roles {
 
       @Basic
       @Id
-      @Column(name = "user_no")
-      private short userNo;
-
+      @Column(name = "user_no", insertable = false, updatable = false)
+      private int userNo;
 
       @Basic
       @Column(name = "user_role")
       private String userRole;
 
       @ManyToOne
-      @JoinColumn(name = "user_no", referencedColumnName = "user_no", nullable = false)
+      @JoinColumn(name = "user_no", insertable = false, updatable = false, referencedColumnName = "user_no", nullable = false)
       private Users usersByUserNo;
-
 
       @Override
       public boolean equals(Object o) {

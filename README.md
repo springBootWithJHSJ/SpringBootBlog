@@ -2,20 +2,21 @@
 
 ---
 
-
 1. 개발 환경
     - Intellij
-    - Postman  
-    -    
+    - Postman
+    -
     - GitHub
-    - Mysql  
-    -   
+    - Mysql
+    -
+
 ---
+
 2. **사용기술**
     - 백엔드
         - **주요 프레임워크 / 라이브러리**
             - Java 11 openjdk
-            - (안정된 거)SpringBoot  2.6.x
+            - (안정된 거)SpringBoot 2.6.x
             - SpringBoot Security
             - Spring Data JPA
             - QueryDSL
@@ -36,26 +37,34 @@
         - Lombok
         - Toast Ui Editor
         - Github-api
+
 ---
 
-3. **진행상황**  
+3. **진행상황**
 
->1. 22/05/01  
->>- 젠킨스 연결 및 자동 배포 기능 구현완료  ( github-webhook && ngrok > 로컬 url  -> 임시 외부 url 로 변경 )  
->    ![image](https://user-images.githubusercontent.com/80584060/166144452-ec3a0417-978b-4a8a-9b09-cd85c296acc8.png)
->     ![img.png](img.png)
+> 1. 22/05/01
+>> - 젠킨스 연결 및 자동 배포 기능 구현완료  ( github-webhook && ngrok > 로컬 url -> 임시 외부 url 로 변경 )  
+     > ![image](https://user-images.githubusercontent.com/80584060/166144452-ec3a0417-978b-4a8a-9b09-cd85c296acc8.png)
+     > ![img.png](img.png)
+
 - ERD 다이어그램
->    ![img_2.png](img_2.png)
->    ![img_1.png](img_1.png)
-> 
->22/05/03  
->>  스웨거 적용
+
+> ![img_2.png](img_2.png)
+> ![img_1.png](img_1.png)
+>
+>22/05/03
+>> 스웨거 적용
 > ![img_3.png](img_3.png)
 > 코드가 지저분해 진다는 단점은 존재, 하지만 개별 기능에 대한 문서화가 가능한 장점이 있기에 도입.
-> 
-    
+>
+>> 테스트 코드 추가
+>
+> > JPA 엔티티 구성
+>
+> >
 
 ### Reference Documentation
+
 For further reference, please consider the following sections:
 
 * [Official Gradle documentation](https://docs.gradle.org)
@@ -70,6 +79,7 @@ For further reference, please consider the following sections:
 * [Apache Kafka Streams Binding Capabilities of Spring Cloud Stream](https://docs.spring.io/spring-cloud-stream/docs/current/reference/htmlsingle/#_kafka_streams_binding_capabilities_of_spring_cloud_stream)
 
 ### Guides
+
 The following guides illustrate how to use some features concretely:
 
 * [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)

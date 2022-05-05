@@ -1,6 +1,9 @@
 package com.JS_Blog.springBlog.blog.entity;
 
+import com.JS_Blog.springBlog.SpringBlogApplication;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -15,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class ArticlesRepositoryTest {
 
+      private static final Logger logger = LoggerFactory.getLogger(SpringBlogApplication.class);
       LocalDate now = LocalDate.now();
 
       @Autowired
@@ -24,6 +28,7 @@ public class ArticlesRepositoryTest {
       void save() {
             // 1. 게시물의 파라미터의 생성
             Articles params = Articles.builder()
+                                      .articleNo(1)
                                       .articleContent("게시글의 내용입니다.")
                                       .articleTitle("게시물의 제목입니다.")
                                       .articleShowYn("Y")
@@ -32,16 +37,23 @@ public class ArticlesRepositoryTest {
                                       .userNo(1)
                                       .categoryNo(1)
                                       .build();
+            
+
+            System.out.println("params = " + params.getArticleContent());
 
             //2. 게시물 저장
             articlesRepository.save(params);
 
             //3. 게시물 정보 조회
-            Articles entity = articlesRepository.findById(1)
-                                                .get();
-            assertThat(entity.getArticleTitle()).isEqualTo("게시물의 제목입니다.");
-            assertThat(entity.getArticleContent()).isEqualTo("게시글의 내용입니다.");
-            assertThat(entity.getCid()).isEqualTo("박상준");
+            if (articlesRepository.findById(1)
+                                  .isPresent()) {
+                  Articles entity = articlesRepository.findById(1)
+                                                      .get();
+                  assertThat(entity.getArticleTitle()).isEqualTo("게시물의 제목입니다.");
+                  assertThat(entity.getArticleContent()).isEqualTo("게시글의 내용입니다.");
+                  assertThat(entity.getCid()).isEqualTo("박상준");
+            }
+
       }
 
       @Test
@@ -55,11 +67,15 @@ public class ArticlesRepositoryTest {
 
       @Test
       void delete() {
-            //1. 게시글의 조회
-            Articles entity = articlesRepository.findById(1)
-                                                .get();
-            //2. 게시글의 삭제
-            articlesRepository.delete(entity);
+            if (articlesRepository.findById(1)
+                                  .isPresent()) {
+                  //1. 게시글의 조회
+                  Articles entity = articlesRepository.findById(2)
+                                                      .get();
+                  //2. 게시글의 삭제
+                  articlesRepository.delete(entity);
+            }
+
       }
 
 }

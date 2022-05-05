@@ -33,7 +33,7 @@ public class Articles {
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       @Id
       @Column(name = "article_no", nullable = false)
-      private int articleNo;
+      private Integer articleNo;
 
       @Basic
       @Column(name = "article_title", nullable = false)
@@ -59,23 +59,20 @@ public class Articles {
       @Column(name = "CID", nullable = false)
       private String cid;
 
-      @Basic
       @Column(name = "UID")
       private String uid;
 
-      @Basic
       @Column(name = "thumbnail")
       private String thumbnail;
 
-      @Column(name = "user_no", insertable = false, updatable = false, nullable = false)
-      private int userNo;
+      @Column(name = "user_no", nullable = false, insertable = false, updatable = false)
+      private Integer userNo;
 
-      @Basic
       @Column(name = "category_no", insertable = false, updatable = false)
-      private int categoryNo;
+      private Integer categoryNo;
 
       @ManyToOne
-      @JoinColumn(name = "user_no", referencedColumnName = "user_no", nullable = false)
+      @JoinColumn(name = "user_no", referencedColumnName = "user_no")
       private Users usersByUserNo;
 
       @ManyToOne

@@ -39,8 +39,9 @@ public class Category {
       @Basic
       @Column(name = "user_no", insertable = false, updatable = false)
       private int userNo;
-      @OneToMany(mappedBy = "categoryByCategoryNo")
-      private Collection<Articles> articlesByCategoryNo;
+
+      //      @OneToMany(mappedBy = "categoryByCategoryNo")
+      //      private Collection<Articles> articlesByCategoryNo;
       @ManyToOne
       @JoinColumn(name = "user_no", referencedColumnName = "user_no", nullable = false)
       private Users usersByUserNo;

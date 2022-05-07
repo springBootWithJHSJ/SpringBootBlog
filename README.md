@@ -61,7 +61,7 @@
 >
 > > JPA 엔티티 구성
 >
-> >
+>
 
 ### Reference Documentation
 

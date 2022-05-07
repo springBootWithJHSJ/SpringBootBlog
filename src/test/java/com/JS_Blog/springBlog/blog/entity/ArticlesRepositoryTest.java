@@ -37,7 +37,7 @@ public class ArticlesRepositoryTest {
                                       .userNo(1)
                                       .categoryNo(1)
                                       .build();
-            
+
 
             System.out.println("params = " + params.getArticleContent());
 
@@ -70,7 +70,7 @@ public class ArticlesRepositoryTest {
             if (articlesRepository.findById(1)
                                   .isPresent()) {
                   //1. 게시글의 조회
-                  Articles entity = articlesRepository.findById(2)
+                  Articles entity = articlesRepository.findById(1)
                                                       .get();
                   //2. 게시글의 삭제
                   articlesRepository.delete(entity);

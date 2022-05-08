@@ -25,4 +25,9 @@ public class ArticleApiController {
             throw new RuntimeException("런타임 에러!");
       }
 
+      @GetMapping("/hello")
+      public String hello() {
+            return "hello";
+      }
+
 }

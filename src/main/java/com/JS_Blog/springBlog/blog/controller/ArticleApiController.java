@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 2022-05-06        ipeac       최초 생성
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/blog-article")
 public class ArticleApiController {
 
       @GetMapping("/test")
@@ -25,9 +25,9 @@ public class ArticleApiController {
             throw new RuntimeException("런타임 에러!");
       }
 
-      @GetMapping("/hello")
+      @GetMapping("/")
       public String hello() {
-            return "hello";
+            return "index";
       }
 
 }

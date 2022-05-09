@@ -3,6 +3,10 @@ package com.JS_Blog.springBlog.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -32,40 +36,35 @@ import java.util.List;
 
 @Configuration
 @EnableSwagger2
-public class SwaggerConfig {
+@EnableWebMvc
+public class SwaggerConfig implements WebMvcConfigurer {
 
       private static final String API_NAME = "Blog API";
       private static final String API_VERSION = "0.0.1";
       private static final String API_DESCRIPTION = "Blog API 명세서";
 
-
-      @Bean
-      public Docket api() {
-            // parameterBuilder : API 테스트시 모든 API에 전역 파라미터를 설정
-            // 해당 소스는 모든 API 테스트시 HEADER 에 'Autorization' 이라는 값을 추가합니다.
-            Parameter parameterBuilder = new ParameterBuilder().name(HttpHeaders.AUTHORIZATION)
-                                                               .description("Access Tocken")
-                                                               .modelRef(new ModelRef("string"))
-                                                               .parameterType("header")
-                                                               .required(false)
-                                                               .build();
-
-            List<Parameter> globalParamters = new ArrayList<>();
-            globalParamters.add(parameterBuilder);
-
-            return new Docket(DocumentationType.SWAGGER_2).globalOperationParameters(globalParamters)
-                                                          .apiInfo(apiInfo()) //
-                                                          .select()
-                                                          .apis(RequestHandlerSelectors.basePackage(
-                                                              "com.JS_Blog.springBlog")) //Swagger 를 적용할 클래스의 패키지 명 기재
-                                                          .paths(PathSelectors.any()) // 해당 package 하위의 모든 url 에 적용한다.
-                                                          .build();
+      //swagger 2.9.2 버전 리소스 등록
+      @Override
+      public void addResourceHandlers(ResourceHandlerRegistry registry) { //spring-security와 연결할 때 이 부분을 작성하지 않으면 404에러가 뜬다.
+            registry.addResourceHandler("swagger-ui.html")
+                    .addResourceLocations("classpath:/META-INF/resources/");
+            registry.addResourceHandler("/webjars/**")
+                    .addResourceLocations("classpath:/META-INF/resources/webjars/");
       }
 
-      public ApiInfo apiInfo() { // 해당 API의 이름은 무엇이며 현재 버전은 어떻게 되는지 해당 API 에 대한 정보를 적어준다.
-            return new ApiInfoBuilder().title(API_NAME)
-                                       .version(API_VERSION)
-                                       .description(API_DESCRIPTION)
+      @Bean
+      public Docket api() { //swagger를 연결하기 위한 Bean 작성
+            return new Docket(DocumentationType.SWAGGER_2).select()
+                                                          .apis(RequestHandlerSelectors.any())
+                                                          .paths(PathSelectors.any())
+                                                          .build()
+                                                          .apiInfo(apiInfo());
+      }
+
+      private ApiInfo apiInfo() { //선택
+            return new ApiInfoBuilder().title("Blog") //자신에게 맞는 타이틀을 작성해준다.
+                                       .description("backend api document") //알맞는 description을 작성해준다.
+                                       .version("0.1") //알맞는 버전을 작성해준다.
                                        .build();
       }
 

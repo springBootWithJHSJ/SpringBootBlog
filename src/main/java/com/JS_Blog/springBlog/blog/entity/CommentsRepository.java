@@ -1,6 +1,7 @@
 package com.JS_Blog.springBlog.blog.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 
 /**
@@ -15,6 +16,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * 2022-05-10        ipeac       최초 생성
  */
 
-public interface CommentsRepository extends JpaRepository<Articles, Integer> {
-      
+public interface CommentsRepository extends JpaRepository<Comments, Integer>, JpaSpecificationExecutor<Comments> {
+
 }

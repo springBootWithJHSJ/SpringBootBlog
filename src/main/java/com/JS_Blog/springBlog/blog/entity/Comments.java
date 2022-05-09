@@ -32,7 +32,7 @@ public class Comments {
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       @Id
       @Column(name = "comment_no")
-      private int commentNo;
+      private Integer commentNo;
       @Basic
       @Column(name = "comment_nm")
       private String commentNm;
@@ -56,13 +56,15 @@ public class Comments {
       private String cid;
       @Basic
       @Column(name = "user_no", insertable = false, updatable = false)
-      private int userNo;
+      private Integer userNo;
       @Basic
-      @Column(name = "article_no", insertable = false, updatable = false)
-      private int articleNo;
+      @Column(name = "article_no", insertable = false, updatable = false, nullable = false)
+      private Integer articleNo;
+
       @ManyToOne
       @JoinColumn(name = "user_no", referencedColumnName = "user_no")
       private Users usersByUserNo;
+
       @ManyToOne
       @JoinColumn(name = "article_no", referencedColumnName = "article_no", nullable = false)
       private Articles articlesByArticleNo;

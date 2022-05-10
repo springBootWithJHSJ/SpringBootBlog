@@ -10,6 +10,7 @@ import java.security.cert.LDAPCertStoreParameters;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.sql.Date;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -56,5 +57,27 @@ public class CommentsRepositoryTest extends Articles {
 
             }
       }
-      
+
+      @Test
+      void findAll() {
+            //1. 전체 댓글 수 조회
+            Long commentsCount = commentsRepository.count();
+
+            //2. 전체 댓글 리스트 조회
+            List<Comments> comments = commentsRepository.findAll();
+      }
+
+      @Test
+      void delete() {
+            if (commentsRepository.findById(1)
+                                  .isPresent()) {
+                  //댓글 조회
+                  Comments entity = commentsRepository.findById(1)
+                                                      .get();
+                  //댓글 삭제
+                  commentsRepository.delete(entity);
+                  
+            }
+      }
+
 }

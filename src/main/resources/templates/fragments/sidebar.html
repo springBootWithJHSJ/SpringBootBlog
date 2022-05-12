@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<th:block th:fragment="sideBarFragment">
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>SJ BLOG</h3>
+            <strong>SJ</strong>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-home"></i>
+                    카테 1
+                </a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">세부 1</a>
+                    </li>
+                    <li>
+                        <a href="#">세부 2</a>
+                    </li>
+                    <li>
+                        <a href="#">세부 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    카테 2
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">세부 1</a>
+                    </li>
+                    <li>
+                        <a href="#">세부 2</a>
+                    </li>
+                    <li>
+                        <a href="#">세부 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    카테 3
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu2">
+                    <li>
+                        <a href="#">세부 1</a>
+                    </li>
+                    <li>
+                        <a href="#">세부 2</a>
+                    </li>
+                    <li>
+                        <a href="#">세부 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    카테 4
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu3">
+                    <li>
+                        <a href="#">세부 1</a>
+                    </li>
+                    <li>
+                        <a href="#">세부 2</a>
+                    </li>
+                    <li>
+                        <a href="#">세부 3</a>
+                    </li>
+                </ul>
+            </li>
+
+
+        </ul>
+
+
+    </nav>
+</th:block>
+</html>

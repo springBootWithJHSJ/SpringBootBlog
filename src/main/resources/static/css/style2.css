@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: transparent;
 }
 
 p {
@@ -264,4 +264,9 @@ a.article:hover {
     #sidebarCollapse span {
         display: none;
     }
+
+    @font-face {
+        src: url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap') format('truetype');
+    }
+
 }

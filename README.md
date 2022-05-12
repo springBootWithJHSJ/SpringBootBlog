@@ -67,10 +67,12 @@
     ![img_4.png](img_4.png)
 >
 > ---
->2. Vue Spring boot 연동 완료 + BootStrap Vue 적용  
-    ![img_5.png](img_5.png)
->3. Vue 그냥 포기함.  
->4. 
+**22/05/11**
+
+1. 대충 메인 디자인은 짜긴한듯..?
+2. 메인 대충짜고 목록 화면 글작성 화면 짜야함
+
+> ![img_6.png](img_6.png)
 
 
 

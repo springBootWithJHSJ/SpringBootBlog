@@ -6,5 +6,5 @@ const editor = new Editor({
     initialEditType: 'markdown',
     previewStyle: 'vertical'
 });
-
+ 
 editor.getMarkdown();

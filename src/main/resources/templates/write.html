@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<th:block th:replace="fragments/head :: headFragment"></th:block>
-
+<th:block th:replace="fragments/head :: headFragment"/>
+<link href="/static/css/write.css?after" type="text/css"/>
 <body>
     <div class="wrapper">
-        <th:block th:replace="fragments/sidebar :: sideBarFragment"></th:block>
+        <th:block th:replace="fragments/sidebar :: sideBarFragment"/>
         <!--Custom Css-->
         <!-- Page Content  -->
-        <div id="content">
-            <th:block th:replace="fragments/header :: headerFragment"></th:block>
-            <div class="title"
-            <div id="editor">
+        <div id="content" class="text-center">
+            <th:block th:replace="fragments/header :: headerFragment"/>
+            <div class="row">
+                <div class="col-2"></div>
+
+                <div id="title" class="input-group input-group-lg mb-5 col">
+                    <input id="title_content" type="text"
+                           class="form-control border border-light bg-primary  opacity-20"
+                           aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-lg"/>
+
+                </div>
+                <div class="col-2"></div>
+
             </div>
+            <div class="row">
+                <div id="editor">
+
+                </div>
+            </div>
+
+
         </div>
 
 

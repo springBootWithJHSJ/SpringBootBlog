@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<th:block th:replace="fragments/head :: headFragment"></th:block>
+<th:block th:replace="fragments/head :: headFragment"/>
 <style>
     .card-img-top {
         width: 100%;
@@ -11,12 +11,12 @@
 </style>
 <body>
     <div class="wrapper">
-        <th:block th:replace="fragments/sidebar :: sideBarFragment"></th:block>
+        <th:block th:replace="fragments/sidebar :: sideBarFragment"/>
         <!--Custom Css-->
         <!-- Page Content  -->
         <div id="content">
-            <th:block th:replace="fragments/header :: headerFragment"></th:block>
-            <button class="btn-dark">글쓰기</button>
+            <th:block th:replace="fragments/header :: headerFragment"/>
+            <button id="writeBtn" class="btn-dark" th:onclick="|location.href='@{/blog-article/write}'|">글쓰기</button>
             <hr/>
 
             <div class="container">
@@ -55,11 +55,8 @@
         </div>
     </div>
 
-
-    </div>
     <footer class="container-fluid navbar-fixed-bottom p-0 m-0 " style="background-color: white">
         <th:block th:replace="fragments/footer :: footerFragment"></th:block>
-
     </footer>
 
 

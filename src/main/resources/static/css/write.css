@@ -1,0 +1,21 @@
+/**
+ *packageName    : ${PACKAGE_NAME}
+ * fileName       : ${NAME}
+ * author         : ipeac
+ * date           : 2022-05-15
+ * description    :
+ * ===========================================================
+ * DATE              AUTHOR             NOTE
+ * -----------------------------------------------------------
+ * 2022-05-15        ipeac       최초 생성
+ */
+#title {
+
+    margin: 0 auto;
+    float: none;
+
+}
+
+#title_content {
+    background-color: #cfe2ff;
+}

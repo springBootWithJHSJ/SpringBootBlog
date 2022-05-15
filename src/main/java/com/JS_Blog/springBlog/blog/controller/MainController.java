@@ -20,14 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @Controller
-@RequestMapping("/")
 @Log4j2
 public class MainController {
 
       @RequestMapping(value = "/", method = RequestMethod.GET)
       public String main() {
             log.info("main() is invoked");
-            
+
             return "main";
       }
 

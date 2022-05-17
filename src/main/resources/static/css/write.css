@@ -19,3 +19,12 @@
 #title_content {
     background-color: #cfe2ff;
 }
+
+#dropdown_btn {
+    box-shadow: none;
+}
+
+#category {
+    box-shadow: none;
+
+}

@@ -1,11 +1,7 @@
 package com.JS_Blog.springBlog.blog.service;
 
-import com.JS_Blog.springBlog.blog.dto.ArticleRequestDto;
+import com.JS_Blog.springBlog.blog.dto.ArticleDTO;
 import com.JS_Blog.springBlog.blog.entity.Articles;
-import com.JS_Blog.springBlog.blog.entity.ArticlesRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -19,21 +15,22 @@ import org.springframework.transaction.annotation.Transactional;
  * -----------------------------------------------------------
  * 2022-05-18        ipeac       최초 생성
  */
-@Service
-@RequiredArgsConstructor
-public class ArticleService {
 
-      private final ArticlesRepository articlesRepository;
+public interface ArticleService {
 
-      /**
-       * 게시글 생성
-       *
-       * @return Integer
-       */
-      @Transactional
-      public Integer save(final ArticleRequestDto params) {
-            Articles entity = articlesRepository.save(params.toEntity());
-            return entity.getArticleNo();
+      Integer register(ArticleDTO dto);
+
+      default Articles dtoToEntity(ArticleDTO dto) {
+            Articles entity = Articles.builder()
+                                      .articleNo(1)
+                                      .articleTitle(dto.getArticle_title())
+                                      .articleContent(dto.getArticle_content())
+                                      .categoryNo(dto.getCategory_no())
+                                      .articleShowYn(dto.getArticle_show_yn())
+                                      .userNo(dto.getUser_no())
+                                      .cdt(dto.getCdt())
+                                      .build();
+            return entity;
       }
 
 }

@@ -1,0 +1,42 @@
+package com.JS_Blog.springBlog.blog.service;
+
+import com.JS_Blog.springBlog.blog.dto.ArticleDTO;
+import com.JS_Blog.springBlog.blog.entity.Articles;
+import com.JS_Blog.springBlog.blog.entity.ArticlesRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+
+/**
+ * packageName    : com.JS_Blog.springBlog.blog.service
+ * fileName       : ArticleServiceImpl
+ * author         : ipeac
+ * date           : 2022-05-18
+ * description    :
+ * ===========================================================
+ * DATE              AUTHOR             NOTE
+ * -----------------------------------------------------------
+ * 2022-05-18        ipeac       최초 생성
+ */
+@Service
+@Slf4j
+@RequiredArgsConstructor //의존성 자동 주입
+public class ArticleServiceImpl implements ArticleService {
+
+      private final ArticlesRepository articlesRepository;
+
+      @Override
+      public Integer register(ArticleDTO dto) {
+            log.info("register() is invoked");
+
+            Articles entity = dtoToEntity(dto);
+
+            log.info("entity = {}", entity);
+
+            articlesRepository.save(entity);
+
+            return entity.getArticleNo();
+      }
+
+}

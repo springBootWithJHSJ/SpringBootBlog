@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="">
 <th:block th:fragment="sideBarFragment">
-    <nav id="sidebar">
+    <nav id="sidebar" class="collapsed">
         <div class="sidebar-header">
             <h3>SJ BLOG</h3>
             <strong>SJ</strong>
         </div>
-
+        
         <ul class="list-unstyled components">
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -26,7 +26,7 @@
                 </ul>
             </li>
             <li>
-
+                
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-copy"></i>
                     카테 2
@@ -44,8 +44,8 @@
                 </ul>
             </li>
             <li>
-
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                
+                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-copy"></i>
                     카테 3
                 </a>
@@ -62,8 +62,8 @@
                 </ul>
             </li>
             <li>
-
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                
+                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-copy"></i>
                     카테 4
                 </a>
@@ -79,11 +79,11 @@
                     </li>
                 </ul>
             </li>
-
-
+        
+        
         </ul>
-
-
+    
+    
     </nav>
 </th:block>
 </html>

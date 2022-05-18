@@ -51,9 +51,7 @@ public class Comments {
       @Basic
       @Column(name = "UID")
       private String uid;
-      @Basic
-      @Column(name = "CID")
-      private String cid;
+
       @Basic
       @Column(name = "user_no", insertable = false, updatable = false)
       private Integer userNo;
@@ -68,29 +66,5 @@ public class Comments {
       @ManyToOne
       @JoinColumn(name = "article_no", referencedColumnName = "article_no", nullable = false)
       private Articles articlesByArticleNo;
-
-      @Override
-      public boolean equals(Object o) {
-            if (this == o) {
-                  return true;
-            }
-            if (o == null || getClass() != o.getClass()) {
-                  return false;
-            }
-            Comments comments = (Comments) o;
-            return commentNo == comments.commentNo && articleNo == comments.articleNo && Objects.equals(commentNm,
-                                                                                                        comments.commentNm) && Objects.equals(
-                commentPw, comments.commentPw) && Objects.equals(commentContent,
-                                                                 comments.commentContent) && Objects.equals(cdt,
-                                                                                                            comments.cdt) && Objects.equals(
-                udt, comments.udt) && Objects.equals(uid, comments.uid) && Objects.equals(cid,
-                                                                                          comments.cid) && Objects.equals(
-                userNo, comments.userNo);
-      }
-
-      @Override
-      public int hashCode() {
-            return Objects.hash(commentNo, commentNm, commentPw, commentContent, cdt, udt, uid, cid, userNo, articleNo);
-      }
 
 }

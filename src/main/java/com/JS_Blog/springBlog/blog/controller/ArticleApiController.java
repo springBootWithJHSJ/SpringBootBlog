@@ -1,10 +1,9 @@
 package com.JS_Blog.springBlog.blog.controller;
 
-import com.JS_Blog.springBlog.blog.dto.ArticleRequestDto;
+import com.JS_Blog.springBlog.blog.entity.Articles;
 import com.JS_Blog.springBlog.blog.entity.Category;
 import com.JS_Blog.springBlog.blog.entity.CategoryRepository;
 import com.JS_Blog.springBlog.blog.service.ArticleService;
-import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -66,15 +65,15 @@ public class ArticleApiController {
       public String goWritePage() {
             log.info("goWritePage() is invoked");
 
+
             return "write";
       }
 
       @PostMapping(value = "/write")
-      public Integer write(@RequestBody final ArticleRequestDto articleRequestDto) {
+      public String write(Articles articles) {
             log.info("write() is invoked");
 
-
-            return articleService.save(articleRequestDto);
+            return "";
       }
 
 }

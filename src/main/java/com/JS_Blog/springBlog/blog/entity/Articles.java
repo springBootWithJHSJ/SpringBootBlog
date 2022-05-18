@@ -55,10 +55,6 @@ public class Articles {
       @Column(name = "CDT", nullable = false)
       private Date cdt;
 
-      @Basic
-      @Column(name = "CID", nullable = false)
-      private String cid;
-
       @Column(name = "UID")
       private String uid;
 
@@ -87,29 +83,5 @@ public class Articles {
 
       @OneToMany(mappedBy = "articlesByArticleNo")
       private Collection<Likes> likesByArticleNo;
-
-      @Override
-      public boolean equals(Object o) {
-            if (this == o) {
-                  return true;
-            }
-            if (o == null || getClass() != o.getClass()) {
-                  return false;
-            }
-            Articles articles = (Articles) o;
-            return articleNo == articles.articleNo && userNo == articles.userNo && Objects.equals(articleContent,
-                                                                                                  articles.articleContent) && Objects.equals(
-                articleShowYn, articles.articleShowYn) && Objects.equals(udt, articles.udt) && Objects.equals(cdt,
-                                                                                                              articles.cdt) && Objects.equals(
-                cid, articles.cid) && Objects.equals(uid, articles.uid) && Objects.equals(thumbnail,
-                                                                                          articles.thumbnail) && Objects.equals(
-                categoryNo, articles.categoryNo);
-      }
-
-      @Override
-      public int hashCode() {
-            return Objects.hash(articleNo, articleContent, articleShowYn, udt, cdt, cid, uid, thumbnail, userNo,
-                                categoryNo);
-      }
 
 }

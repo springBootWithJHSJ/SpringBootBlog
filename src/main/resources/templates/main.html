@@ -4,7 +4,7 @@
 <th:block th:replace="fragments/head :: headFragment"/>
 <style>
     .card-img-top {
-        width: 100%;
+        width: 300px;
         height: 15vw;
         object-fit: cover;
     }
@@ -16,43 +16,57 @@
         <!-- Page Content  -->
         <div id="content">
             <th:block th:replace="fragments/header :: headerFragment"/>
-            <button id="writeBtn" class="btn-dark" th:onclick="|location.href='@{/blog-article/article-write}'|">글쓰기
-            </button>
+            
+            <div class="row mb-5">
+                <div class="col-2">
+                    <button id="dropdown_btn" type="button" class="btn btn-danger dropdown-toggle"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        카테고리
+                    </button>
+                    <div class="dropdown-menu" th:field="*{category_list}">
+                        <a name="category" id="category" class="dropdown-item" href="#"
+                           th:each="category : ${category_list}"
+                           th:value=
+                                   "${category.key}" th:text="${category.value}"></a>
+                    </div>
+                </div>
+                <div class="col-8"></div>
+                <div class="col-2">
+                    <button id="writeBtn" class="btn-dark" th:onclick="|location.href='@{/blog-article/write}'|">글쓰기
+                    </button>
+                </div>
+            </div>
             <hr/>
             
             <div class="container">
                 <div class="row g-3">
-                    <div class="d-flex align-items-stretch col-12 col-md-6 col-lg-4 ">
-                        <div class="card ">
+                    
+                    <div th:each="dto : ${result.dtoList}" class="d-flex align-items-stretch col-12 col-md-6 col-lg-4">
+                        <div class="card">
                             <img src="https://source.unsplash.com/random" alt="" class="card-img-top"/>
                             <div class="card-body">
-                                <h5 class="card-title">제목입니다.</h5>
-                                <p class="card-text">내용입내용입 내용입내용입 내용입내용입 내용입내용입</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-stretch col-12 col-md-6 col-lg-4">
-                        <div class="card ">
-                            <img src="https://source.unsplash.com/random" alt="" class="card-img-top"/>
-                            <div class="card-body">
-                                <h5 class="card-title">제목입니다.</h5>
-                                <p class="card-text">내용입내용입 내용입내용입 내용입내용입 내용입내용입</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-stretch col-12 col-md-6 col-lg-4">
-                        <div class="card ">
-                            <img src="https://source.unsplash.com/random" alt="" class="card-img-top"/>
-                            <div class="card-body">
-                                <h5 class="card-title">제목입니다.</h5>
-                                <p class="card-text">내용입내용입 내용입내용입 내용입내용입 내용입내용입</p>
+                                <h5 class="card-title">[[${dto.article_no}]]</h5>
+                                <p class="card-text">[[${dto.article_content}]]</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            
-            
+                
+                <ul class="pagination h-100 justify-content-center align-items-center mt-4">
+                    <li class="page-item" th:if="${result.prev}">
+                        <a class="page-link" th:href="@{/(page=${result.start -1})}" tabindex="-1">Previous</a>
+                    </li>
+                    <li th:class=" 'page-item' + ${result.page == page?'active':''}"
+                        th:each="page : ${result.pageList}">
+                        <a class="page-link" th:href="@{/(page=${page})}">[[${page}]]</a>
+                    </li>
+                    <li class="page-item" th:if="${result.next}">
+                        <a class="page-link" th:href="@{/(page=${result.end+1})}">Next</a>
+                    </li>
+                </ul>
             </div>
+        
         </div>
     </div>
     

@@ -1,6 +1,8 @@
 package com.JS_Blog.springBlog.blog.service;
 
 import com.JS_Blog.springBlog.blog.dto.ArticleDTO;
+import com.JS_Blog.springBlog.blog.dto.PageRequestDTO;
+import com.JS_Blog.springBlog.blog.dto.PageResultDTO;
 import com.JS_Blog.springBlog.blog.entity.Articles;
 
 
@@ -20,6 +22,8 @@ public interface ArticleService {
 
       Integer register(ArticleDTO dto);
 
+      PageResultDTO<ArticleDTO, Articles> getList(PageRequestDTO requestDTO);
+
       default Articles dtoToEntity(ArticleDTO dto) {
             Articles entity = Articles.builder()
                                       .articleNo(1)
@@ -31,6 +35,19 @@ public interface ArticleService {
                                       .cdt(dto.getCdt())
                                       .build();
             return entity;
+      }
+
+      default ArticleDTO entityToDto(Articles entity) {
+            ArticleDTO articleDTO = ArticleDTO.builder()
+                                              .article_no(entity.getArticleNo())
+                                              .article_title(entity.getArticleTitle())
+                                              .article_content(entity.getArticleContent())
+                                              .category_no(entity.getCategoryNo())
+                                              .article_show_yn(entity.getArticleShowYn())
+                                              .user_no(entity.getUserNo())
+                                              .cdt(entity.getCdt())
+                                              .build();
+            return articleDTO;
       }
 
 }

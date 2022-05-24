@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.function.Function;
 
 
@@ -53,9 +54,20 @@ public class ArticleServiceImpl implements ArticleService {
 
             Page<Articles> result = articlesRepository.findAll(pageable);
 
-            Function<Articles, ArticleDTO> fn = (entity -> entityToDto(entity));
+            Function<Articles, ArticleDTO> fn = (this::entityToDto);
 
             return new PageResultDTO<>(result, fn);
+      }
+
+      @Override
+      public ArticleDTO read(Integer article_no) {
+            log.info("read() is invoked");
+            log.info("article_no = {}", article_no);
+
+            Optional<Articles> result = articlesRepository.findById(article_no);
+
+            return result.map(this::entityToDto)
+                         .orElse(null);
       }
 
 }

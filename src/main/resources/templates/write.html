@@ -11,12 +11,13 @@
         <!-- Page Content  -->
         <div id="content" class="text-center">
             <th:block th:replace="fragments/header :: headerFragment"/>
-            <form th:action="@{/blog-acticle/write}" method="post">
+            <form th:action="@{/blog-article/write}" th:method="post">
+                <!--제목-->
                 <div class="row">
                     <div class="col-2"></div>
                     
                     <div id="title" class="input-group input-group-lg mb-4 col">
-                        <input id="title_content" type="text" name="article_title"
+                        <input id="title_content" type="text" name="article_title" required
                                placeholder="제목을 입력해주세요"
                                class="form-control border border-black text-dark "
                                aria-label="Sizing example input"
@@ -25,30 +26,29 @@
                     <div class="col-2"></div>
                 
                 </div>
+                <!--카테고리-->
                 <div class="row mb-5">
-                    <div class="col-2">
-                        <button id="dropdown_btn" type="button" class="btn btn-danger dropdown-toggle"
-                                data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            카테고리
-                        </button>
-                        <div class="dropdown-menu" th:field="*{category_list}">
-                            <a name="category" id="category" class="dropdown-item" href="#"
-                               th:each="category : ${category_list}"
-                               th:value=
-                                       "${category.key}" th:text="${category.value}"></a>
-                        </div>
+                    <div class="col-2" th:field="*{category_list}">
+                        <label for="category"></label>
+                        <select name="category_no" id="category" class="form-select form-select-lg mb-3"
+                                aria-label=".form-select-lg example">
+                            <option th:each="category : ${category_list}" th:value="${category.key}"
+                                    th:text="${category.value}"></option>
+                        </select>
                     </div>
                     <div class="col-10"></div>
                 </div>
+                <!--에디터-->
                 <div class="row">
                     <div id="editor"></div>
-                    <div id="article_content" name="article_content" class="invisible"></div>
+                    <label for="article_content"></label>
+                    <textarea id="article_content" name="article_content" class="invisible"></textarea>
                 </div>
+                <!--글쓰기-->
                 <div class="row">
                     <div class="col-10"></div>
                     <div class="col-2">
-                        <button type="submit" class="btn btn-primary">글쓰기</button>
+                        <button id="write_btn" type="submit" class="btn btn-primary">글쓰기</button>
                     </div>
                 </div>
             </form>
@@ -59,18 +59,33 @@
     </div>
     
     <th:block th:replace="fragments/footer::footerFragment"/>
-    <script type="module" src="/static/js/wrtie.js"></script>
-    <script th:inline="javascript" type="text/javascript">
-        window.onload = function () {
-            $(`a[name=category]`).on(`click`, function (e) {
+    <script th:inline="javascript">
+        
+        
+        $(document).ready(function () {
+            function isEmpty(el) {
+                return !$.trim(el.html())
+            }
+            
+            
+            $(`#write_btn`).on('click', function (e) {
                 
-                e.preventDefault();
-                console.log(e.target.value);
+                if (isEmpty($('.toastui-editor-contents'))) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '빈 내용',
+                        text: '글 내용은 채우고 보내야지 임마',
+                    });
+                    e.preventDefault();
+                    return false;
+                    
+                }
+                
+                
             });
-        };
-    
-    
+        });
     </script>
+    <script type="text/javascript" src="/static/js/wrtie.js"></script>
 </body>
 
 </html>

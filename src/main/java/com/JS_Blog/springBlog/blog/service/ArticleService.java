@@ -20,6 +20,8 @@ import com.JS_Blog.springBlog.blog.entity.Articles;
 
 public interface ArticleService {
 
+      ArticleDTO read(Integer article_no);
+
       Integer register(ArticleDTO dto);
 
       PageResultDTO<ArticleDTO, Articles> getList(PageRequestDTO requestDTO);
